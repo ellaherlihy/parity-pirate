@@ -7,6 +7,10 @@ RSpec.describe "Array#split_by_parity" do
     expect(array.split_by_parity).to eq([[2, 4], [1, 3, 5]])
   end
 
+  it "is the same as partition(&:even?)" do
+    expect(array.split_by_parity).to eq(array.partition(&:even?))
+  end
+
   it "sets variable names for created arrays" do
     even, odd = array.split_by_parity
     expect(even).to eq([2, 4])
